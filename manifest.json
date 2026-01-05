@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Starfire AI Extension",
+  "version": "1.0",
+  "description": "A simple extension that allows users to interact with the Starfire AI model.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "https://*/*",
+    "http://localhost/*",
+    "http://192.168.1.123/*",
+    "fileSystem",
+    "https://oj.rockm3.net/*",
+    "https://api.sparkai.com/*",
+    "https://spark-api.xf-yun.com/*",
+    "http://localhost:5000/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/ai3.png",
+      "48": "icons/ai2.png",
+      "128": "icons/ai1.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://oj.rockm3.net/problem/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16": "icons/ai3.png",
+    "48": "icons/ai2.png",
+    "128": "icons/ai1.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/assistant.png","styles/*.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
